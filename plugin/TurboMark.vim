@@ -28,11 +28,10 @@ function g:TurboMark.Clear()
 endfunction
 
 function g:TurboMark.Find()
-    call reverse(s:marklist)
     let reversed = copy(s:marklist)
-    call reverse(s:marklist)
-    execute "cgetexpr reversed"
-    execute "copen"
+    call reverse(reversed)
+    cgetexpr reversed
+    copen
     call feedkeys('/')
 endfunction
 
