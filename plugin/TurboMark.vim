@@ -2,6 +2,7 @@
 " Last Change: 2013 Jul 24
 " Maintainer: Konstantinos Bairaktaris <ikijob@gmail.com>
 " License: This file is placed in the public domain
+" Version: 0.1
 
 if exists("g:loaded_turbomark")
     finish
