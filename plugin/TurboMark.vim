@@ -28,12 +28,23 @@ function g:TurboMark.Clear()
     let s:marklist = []
 endfunction
 
+let g:TurboMark.in_turbomark = 0
+
+function s:close_quickfix_and_clear()
+    if g:TurboMark.in_turbomark == 1
+        cclose
+        let g:TurboMark.in_turbomark = 0
+    endif
+endfunction
+autocmd BufEnter * call s:close_quickfix_and_clear()
+
 function g:TurboMark.Find()
-    let reversed = copy(s:marklist)
-    call reverse(reversed)
-    cgetexpr reversed
+    let l:reversed = copy(s:marklist)
+    call reverse(l:reversed)
+    cgetexpr l:reversed
     copen
-    call feedkeys('/')
+    let g:TurboMark.in_turbomark = 1
+    call feedkeys('/\c')
 endfunction
 
 command TurboMark call g:TurboMark.Mark()
