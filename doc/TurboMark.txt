@@ -20,7 +20,7 @@ Commands:
                             You might want to close the quickfix window with
                             :cclose after you're done.
 
-: TurboClear                                            *:TurboClear*
+:TurboClear                                             *:TurboClear*
                             Delete all entries from the marklist.
                                                                        
 Mappings:
@@ -37,3 +37,16 @@ You can override the above mappings in your .vimrc, like this:
 
     nmap <silent> mm :TurboMark<CR>
     nmap <silent> '' :TurboFind<CR>
+
+A couple of options you may want to override in your .vimrc are:
+
+    let g:TurboMarkListFile = "~/.mylistfile.txt"
+    (defaults to '~/.TurboMarkList.txt')
+
+    This is where TurboMark will store your
+    marked lines so that they can be reused when starting VIM again.
+
+
+    let g:TurboMarkMax = 30  (defaults to 100)
+
+    This is the maximum number of marked lines that TurboMark will remember
