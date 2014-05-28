@@ -31,7 +31,11 @@ function g:TurboMark.Mark()
     endif
     call add(s:marklist, quickfix_entry)
 
-    let s:marklist = s:marklist[0 : g:TurboMarkMax - 1]
+    let l:from = 100
+    if len(s:marklist) < 100
+        let l:from = len(s:marklist)
+    endif
+    let s:marklist = s:marklist[-l:from : ]
 
     call writefile(s:marklist, g:TurboMarkListFile)
 endfunction
