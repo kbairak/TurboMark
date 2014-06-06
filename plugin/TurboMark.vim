@@ -13,6 +13,7 @@ let g:TurboMark = {}
 let s:marklist = []
 let g:TurboMarkListFile = expand('$HOME') . "/.TurboMarkList.txt"
 let g:TurboMarkMax = 100
+let g:TurboMarkSearchOnOpen = 0
 
 function g:TurboMark.Init()
     if filereadable(g:TurboMarkListFile)
@@ -60,7 +61,9 @@ function g:TurboMark.Find()
     cgetexpr l:reversed
     copen
     let g:TurboMark.in_turbomark = 1
-    call feedkeys('/\c')
+    if g:TurboMarkSearchOnOpen == 1
+        call feedkeys('/\c')
+    endif
 endfunction
 
 command TurboMark call g:TurboMark.Mark()
