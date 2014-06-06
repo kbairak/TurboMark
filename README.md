@@ -49,3 +49,11 @@ A couple of options you may want to override in your .vimrc are:
     let g:TurboMarkMax = 30  (defaults to 100)
 
     This is the maximum number of marked lines that TurboMark will remember
+
+
+    let g:TurboMarkSearchOnOpen = 1
+
+    This will start a vim case-insensitive search when the quickfix window is
+    opened so you can start typing a search for a mark as soon as you activate
+    TurboMark.  Just remember to press a double RETURN after your search, one to
+    end your search and one to navigate to the file/line you want.

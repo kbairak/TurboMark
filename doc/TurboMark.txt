@@ -11,11 +11,12 @@ Commands:
                                                                        
 :TurboFind                                              *:TurboFind*
                             Populate the quickfix window with all the entries
-                            in the marklist, open the quickfix window and enter
-                            search mode. This allows you to quickly find any
-                            line you've marked; just remember to press a double
-                            RETURN after your search, one to end your search
-                            and one to navigate to the file/line you want.
+                            in the marklist, open the quickfix window.
+
+                            Note that previous versions automatically entered
+                            search mode when the quickfix window was opened.
+                            That behavior can now be activated by setting
+                            g:TurboMarkSearchOnOpen (see |TurboMark-settings|).
 
                             You might want to close the quickfix window with
                             :cclose after you're done.
@@ -50,3 +51,11 @@ A couple of options you may want to override in your .vimrc are:
     let g:TurboMarkMax = 30  (defaults to 100)
 
     This is the maximum number of marked lines that TurboMark will remember
+
+
+    let g:TurboMarkSearchOnOpen = 1
+
+    This will start a vim case-insensitive search when the quickfix window is
+    opened so you can start typing a search for a mark as soon as you activate
+    TurboMark.  Just remember to press a double RETURN after your search, one to
+    end your search and one to navigate to the file/line you want.
