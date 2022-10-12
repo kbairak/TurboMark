@@ -11,9 +11,15 @@ endif
 let g:loaded_turbomark = 1
 let g:TurboMark = {}
 let s:marklist = []
-let g:TurboMarkListFile = expand('$HOME') . "/.TurboMarkList.txt"
-let g:TurboMarkMax = 100
-let g:TurboMarkSearchOnOpen = 0
+if !exists('g:TurboMarkListFile')
+    let g:TurboMarkListFile = expand('$HOME') . "/.TurboMarkList.txt"
+endif
+if !exists('g:TurboMarkMax')
+    let g:TurboMarkMax = 100
+endif
+if !exists('g:TurboMarkSearchOnOpen')
+    let g:TurboMarkSearchOnOpen = 0
+endif
 
 function g:TurboMark.Init()
     if filereadable(g:TurboMarkListFile)
